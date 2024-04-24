@@ -8,42 +8,47 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cadastro</h1>
+        <h1 class="title">Cadastro</h1>
 
-        <form class="form">
+        <form class="form" id="form">
 
-            <fieldset id="identify-group">
-                <legend>Identificação</legend>
+            <fieldset class="form--fieldset" id="identify-group">
+                <legend class="form--legend">Identificação</legend>
 
                 <div class="form--group">
                     <label class="form--label" for="name">Nome Completo</label>
                     <input class="form--input" type="text" name="name" id="name" />
+                    <span class="form--error"></span>
                 </div>
 
                 <div class="form--group">
                     <label class="form--label" for="cpf">CPF</label>
                     <input class="form--input" type="text" name="cpf" id="cpf" />
+                    <span class="form--error"></span>
                 </div>
             </fieldset>
 
-            <fieldset id="contact-group">
-                <legend>Contato</legend>
+            <fieldset class="form--fieldset" id="contact-group">
+                <legend class="form--legend">Contato</legend>
                 <div class="form--group">
                     <label class="form--label" for="email">Email</label>
-                    <input class="form--input" type="email" name="email" id="email" required />
+                    <input class="form--input" type="email" name="email" id="email" />
+                    <span class="form--error"></span>
                 </div>
                 <div class="form--group">
-                    <label class="form--label" for="telefone">Telefone</label>
-                    <input class="form--input" type="tel" name="telefone" id="telefone" />
+                    <label class="form--label" for="phone">Telefone</label>
+                    <input class="form--input" type="tel" name="phone" id="phone" />
+                    <span class="form--error"></span>
                 </div>
             </fieldset>
 
-            <fieldset id="address-group">
-                <legend>Endereço</legend>
+            <fieldset class="form--fieldset" id="address-group">
+                <legend class="form--legend">Endereço</legend>
 
                 <div class="form--group">
                     <label class="form--label" for="cep">CEP</label>
-                    <input class="form--input" type="text" name="cep" id="cep" required />
+                    <input class="form--input" type="text" name="cep" id="cep" />
+                    <span class="form--error"></span>
                 </div>
 
                 <div class="form--group">
@@ -53,8 +58,9 @@
                         type="text"
                         name="address"
                         id="address"
-                        required
+                        
                     />
+                    <span class="form--error"></span>
                 </div>
 
                 <div class="form--group">
@@ -64,8 +70,9 @@
                         type="text"
                         name="bairro"
                         id="bairro"
-                        required
+                        
                     />
+                    <span class="form--error"></span>
                 </div>
 
                 <div class="form--group">
@@ -75,13 +82,14 @@
                         type="text"
                         name="city"
                         id="city"
-                        required
+                        
                     />
+                    <span class="form--error"></span>
                 </div>
 
                 <div class="form--group">
                     <label class="form--label" for="uf">Estado</label>
-                    <select name="uf" id="uf" required>
+                    <select class="form--input form--select" name="uf" id="uf">
                         <optgroup label="Norte">
                             <option value="AC">AC</option>
                             <option value="AM">AM</option>
@@ -124,10 +132,11 @@
                             <option value="SC">SC</option>
                         </optgroup>
                     </select>
+                    <span class="form--error"></span>
                 </div>
             </fieldset>
 
-            <button type="submit" title="Cadastrar">Cadastrar</button>
+            <button class="form--submit" type="submit" title="Cadastrar">Cadastrar</button>
         </form>
     </div>
 

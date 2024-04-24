@@ -1,7 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --bg-color: #f1f5fb;
+
+  --primary-color: #0030b9;
+  --primary-hover-color: #002694;
+  --primary-dark-color: #001d6f;
+  --primary-disabled-color: #99ace3;
+
+  --secondary-color: #91c651;
+  --secondary-hover-color: #749e41;
+  --secondary-active-color: #577731;
+
+  --red-color: #c5381a;
+  --red-hover-color: #bb3519;
+  --red-active-color: #ac290d;
+
+  --label-color: rgba(0, 0, 0, 0.87);
+  --placeholder-color: rgba(0, 0, 0, 0.54);
+  --border-color: #cdcdcd;
+
+  --submit-color: #;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", HelveticaNeue, Helvetica, Arial;
 }
 
 li {
@@ -12,15 +38,180 @@ html,
 body {
   width: 100dvw;
   min-height: 100dvh;
+  overflow-x: hidden;
 }
 
 body {
   padding: 0 1rem;
+  background-color: var(--bg-color);
+  position: relative;
 }
 
 .container {
   width: 100%;
   min-height: 100%;
   max-width: 1240px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title + .form {
+  margin-top: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form--fieldset {
+  width: 100%;
+  max-width: calc(400px + 2 * 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  background-color: transparent;
+}
+
+.form--legend {
+  font-size: 0.9125rem;
+  color: var(--blue-color);
+  font-weight: 700;
+}
+
+.form--group {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.form--label {
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.625rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--label-color);
+  margin-bottom: 0.25rem;
+}
+
+.form--input {
+  outline: none;
+  width: 100%;
+  max-width: 400px;
+  color: var(--label-color);
+  border: 1px solid var(--border-color);
+  background: #fff;
+  height: 2rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 0 0 0 0.25rem;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.form--input:focus {
+  border-color: var(--primary-color);
+}
+
+.form--input[data-error="true"] {
+  border-color: var(--red-color);
+}
+
+.form--submit {
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.25s;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  align-self: center;
+  vertical-align: middle;
+  padding: 0.25rem 1rem;
+  height: 2rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border-radius: 0.25rem;
+}
+
+.form--submit:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.form--error {
+  font-size: 0.625rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--red-color);
+  margin: 0.25rem 0 0 0;
+  display: block;
+}
+
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 3px 4px var(--placeholder-color);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+}
+
+.toast[data-type="error"] {
+  background-color: var(--red-color);
+}
+
+.toast[data-type="success"] {
+  background-color: var(--secondary-color);
+}
+
+.toast--close {
+  cursor: pointer;
+  border: none;
+  background: none;
+  align-self: flex-end;
+  font-size: 1.5rem;
+
+  padding: 1rem;
+  border-radius: 0.25rem 0 0 0.25rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.toast[data-type="success"] > .toast--close {
+  background-color: var(--secondary-hover-color);
+}
+
+.toast[data-type="success"] > .toast--close:hover {
+  background-color: var(--secondary-active-color);
+}
+
+.toast[data-type="error"] > .toast--close {
+  background-color: var(--red-hover-color);
+}
+
+.toast[data-type="error"] > .toast--close:hover {
+  background-color: var(--red-active-color);
+}
+
+.toast--content {
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: 500;
 }
