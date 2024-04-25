@@ -10,7 +10,18 @@
     <div class="container">
         <h1 class="title">Cadastro</h1>
 
-        <form class="form" id="form">
+        <% if (flash.submitted) { %>
+            <div class="toast" data-type=${flash.submitStatus} id="register-user-toast">
+                <button type="button" class="toast--close">x</button>
+                <p class="toast--content">${flash.submitMessage}</p>
+            </div>
+            <script>
+                const toastCloseBtn = document.querySelector("#register-user-toast > .toast--close");
+                toastCloseBtn.addEventListener("click", (event) => event.target.parentElement.remove());
+            </script>
+        <% } %>
+
+        <form class="form" id="form" action="/registerUser/save" metho="POST" >
 
             <fieldset class="form--fieldset" id="identify-group">
                 <legend class="form--legend">Identificação</legend>
@@ -64,12 +75,12 @@
                 </div>
 
                 <div class="form--group">
-                    <label class="form--label" for="bairro">Bairro</label>
+                    <label class="form--label" for="neighborhood">Bairro</label>
                     <input
                         class="form--input"
                         type="text"
-                        name="bairro"
-                        id="bairro"
+                        name="neighborhood"
+                        id="neighborhood"
                         
                     />
                     <span class="form--error"></span>
