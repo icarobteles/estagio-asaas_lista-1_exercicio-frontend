@@ -3,7 +3,7 @@
 :root {
   --bg-color: #f1f5fb;
 
-  --primary-color: #0030b9;
+  --primary-color: #002cbe;
   --primary-hover-color: #002694;
   --primary-dark-color: #001d6f;
   --primary-disabled-color: #99ace3;
@@ -42,16 +42,46 @@ body {
 }
 
 body {
-  padding: 0 1rem;
   background-color: var(--bg-color);
   position: relative;
 }
 
+.header {
+  padding: 1rem;
+  height: 70px;
+  text-align: center;
+  background-color: var(--primary-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header--logo {
+  height: 32px;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  object-fit: contain;
+}
+
 .container {
   width: 100%;
-  min-height: 100%;
+  min-height: calc(100dvh - 70px);
   max-width: 1240px;
   margin: 2rem auto 0;
+  padding: 0 1rem 2rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.container > .brand {
+  display: none;
+}
+
+.container > main {
+  width: 100%;
 }
 
 .title {
@@ -263,4 +293,37 @@ body {
   font-size: 1rem;
   padding: 1rem;
   font-weight: 500;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    display: none;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .container > .brand {
+    display: block;
+    width: 70%;
+    max-width: 800px;
+    min-height: 100dvh;
+    background-color: var(--primary-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .container .brand--img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
