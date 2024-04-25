@@ -56,9 +56,20 @@
             <fieldset class="form--fieldset" id="address-group">
                 <legend class="form--legend">Endereço</legend>
 
-                <div class="form--group">
+                <div class="form--group form--group__cep">
                     <label class="form--label" for="cep">CEP</label>
-                    <input class="form--input" type="text" name="cep" id="cep" />
+                    <div>
+                        <button id="search-cep-btn" class="form--search-cep" type="button" title="Pesquisar Endereço">
+                            <i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0030b9"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="m21 21-4.3-4.3" />
+                                </svg>
+                            </i>
+                        </button>
+                        <input class="form--input" type="text" name="cep" id="cep" />
+                    </div>
                     <span class="form--error"></span>
                 </div>
 
@@ -151,7 +162,7 @@
         </form>
     </div>
 
-    <asset:javascript src="register-page.js"/>
+    <asset:javascript src="fetch-address.js"/>
 
 </body>
 </html>
