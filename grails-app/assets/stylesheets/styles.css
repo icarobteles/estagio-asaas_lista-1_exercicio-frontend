@@ -75,7 +75,7 @@ body {
 
 .form--fieldset {
   width: 100%;
-  max-width: calc(400px + 2 * 1rem);
+  max-width: calc(400px + 2 * 1rem + 2 * 1px); /* 400px + padding + border */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -96,6 +96,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
+}
+
+.form--group__cep > div {
+  position: relative;
 }
 
 .form--label {
@@ -129,6 +133,51 @@ body {
 
 .form--input[data-error="true"] {
   border-color: var(--red-color);
+}
+
+.form--search-cep {
+  --icon-size: 1.25rem;
+
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0.25rem;
+  bottom: calc(50% - var(--icon-size) / 2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(0.95);
+  transition: transform 0.25s;
+}
+
+.form--search-cep:hover {
+  transform: scale(1);
+}
+
+.form--search-cep > i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form--search-cep > i > svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  stroke: var(--primary-color);
+}
+
+.form--search-cep:hover > i > svg {
+  stroke: var(--primary-hover-color);
 }
 
 .form--submit {
